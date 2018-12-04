@@ -1,0 +1,61 @@
+.regCard {
+    padding: 25px;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 1px 1px 1px 1px #ddd;
+}
+
+.label-style {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.radio-style {
+    padding: 7px;
+    font-size: 15px;
+}
+
+.reg-btn {
+    float: right;
+    outline: none;
+    color: #fff;
+    padding: 5px 25px;
+    margin-top: 20px;
+    border-radius: 4px;
+    background: #1ca99a;
+    border-color: #1ca99a;
+    border: 1px solid transparent;
+}
+
+.reg-btn:hover {
+    color: #0c9285;
+    background: #fff;
+    border-color: #0c9285;
+}
+
+.floatRight {
+    float: right;
+}
+
+.padding10 {
+    padding: 10px
+}
+
+.error-style {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.asterisk:after{
+    content:"*";
+    color:red;
+    }
+
+    .viewHeight {
+        height: 90vh;
+    }
+
+    .padding5 {
+        padding: 5px;
+    }

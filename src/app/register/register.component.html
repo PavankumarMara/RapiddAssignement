@@ -1,0 +1,89 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 offset-md-4 regCard">
+          <h3 style="text-align: center; color: #1ca99a">Registration for job</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <!-- Input Field for Entering FirstName -->
+          <div class="form-group">
+            <label class="label-style asterisk">First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" 
+            (keyup)="onEnterName($event.target.value)"  [(ngModel)]="data.name"/>
+            <div *ngIf="submitedName && registerForm.controls.firstName.errors" class="invalid-feedback">
+              <div class="error-style" *ngIf="registerForm.controls.firstName.errors.pattern">
+                Name should not be numeric</div>
+              <div class="error-style" *ngIf="registerForm.controls.firstName.errors.required">
+                Name is required</div>
+            </div>
+          </div>
+
+          <!-- Input Field for Entering Date of Birth -->
+          <div class="form-group">
+            <label class="label-style asterisk">Date of birth</label>
+            <input type="date" formControlName="dateOfBirth" class="form-control" 
+            (change)="onEnterDOB($event.target.value)" [(ngModel)]="data.dob"/>
+            <div *ngIf="submitDOB && registerForm.controls.dateOfBirth.errors" class="invalid-feedback">
+              <div class="error-style"  *ngIf="registerForm.controls.dateOfBirth.errors.required">DOB is required</div>
+            </div>
+          </div>
+
+          <!-- Input Field for Selecting Gender -->
+          <div class="form-group">
+            <label class="label-style">Gender</label>
+            <br />
+            <div class="radio-style">
+              <input type="radio" value="Male" name="gender"
+              (click)="onSelectingGender($event.target.value)" [checked] = "data.gender === 'Male'"> Male
+              <input type="radio" value="Female" name="gender" style="margin-left: 60px;"
+               (click)="onSelectingGender($event.target.value)" [checked] = "data.gender === 'Female'">
+              Female
+            </div>
+          </div>
+
+          <!-- Input Field for Entering Reason For Change -->
+          <div class="form-group">
+            <label class="label-style asterisk">Reason for job change</label>
+            <textarea type="text" formControlName="reasonForJobChange" class="form-control" 
+            (keyup)="onEnterReason($event.target.value)" [(ngModel)]="data.reasonForChange" ></textarea>
+            <div *ngIf="submitReason && registerForm.controls.reasonForJobChange.errors" class="invalid-feedback">
+              <div class="error-style" *ngIf="registerForm.controls.reasonForJobChange.errors.required">Reason is required</div>
+            </div>
+          </div>
+
+          <!-- Input Field for Entering Last Salasry -->
+          <div class="form-group">
+            <label class="label-style asterisk">Last salary figure</label>
+            <input type="number" formControlName="cctc" class="form-control" 
+            (keyup)="onEnterCCTC($event.target.value) " [(ngModel)]="data.cctc" />
+            <div *ngIf="submitCCTC && registerForm.controls.cctc.errors" class="invalid-feedback">
+              <div class="error-style" *ngIf="registerForm.controls.cctc.errors.required">Current CTC is required</div>
+            </div>
+          </div>
+
+          <!-- Input Field for Entering Expected Salasry -->    
+          <div class="form-group">
+            <label class="label-style">Expected Salary</label>
+            <input type="number" formControlName="ectc" class="form-control" 
+            (change)="onEnterECTC($event.target.value)" [(ngModel)]="data.ectc"/>
+          </div>
+
+          <!-- Input Field for Entering Technical Expertise -->   
+          <div class="form-group">
+              <label class="label-style">Technical Expertise</label>
+              <input type="text" formControlName="technicalExpertise" class="form-control" 
+              (change)="onEnterTechnicalExpertise($event.target.value)" [(ngModel)]="data.technicalExpertise"/>
+            </div>
+            <div *ngIf="allClear" class="form-group">
+                <p>*Register button will be enabled nnce all the required fields are set*</p>
+              </div>
+          <div *ngIf="allClear" class="form-group">
+            <button ng-model = "buttonRegister"class="btn btn-primary reg-btn" type="submit" >Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>  
